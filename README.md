@@ -1,4 +1,4 @@
-<p align="center"><img width=12.5% src="./esterify_desktop.png"></p>
+<p align="center"><img width=12.5% src="./esterify-desktop.png"></p>
 
 <h1 align="center">
   esterify! desktop
