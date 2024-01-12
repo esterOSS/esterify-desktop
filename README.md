@@ -16,9 +16,15 @@ esterify! desktop is a Python script, that converts any supported distro with pr
 	- [ ] Debian
 	- [ ] Arch Linux
 	- [ ] Fedora
+	- [ ] Gentoo
+	- [ ] Alpine
 2. **Mobile**
-	- [X] postmarketOS [(Installation)](https://github.com/jukfiuune/rester/blob/main/manual-installation/postmarketOS.md)
+	- [X] postmarketOS
 	- [ ] Mobian
+3. **Enterprise**
+	- [ ] CentOS
+	- [ ] Red Hat Linux
+ [(Installation)](https://github.com/jukfiuune/rester/blob/main/manual-installation/postmarketOS.md)
 
 ## :heart: Thanks to:
 - The esterOS developers and designers
