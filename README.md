@@ -1,11 +1,13 @@
-# rester!
-rester! is a Python script, that converts any supported distro with pre-installed vanilla GNOME to look like esterOS!
+<p align="center"><img width=12.5% src="./esteros_desktop.png"></p>
 
-> [!NOTE]
-> This is an unofficial script, not supported by the esterOS team.
+<h1 align="center">
+  esterify! desktop
+</h1>
+
+esterify! desktop is a Python script, that converts any supported distro with pre-installed vanilla GNOME to look like esterOS!
 
 > [!WARNING]
-> This script is in it's early stages of development and it's meant to be used ***ONLY*** on supported distros with Vanilla GNOME. Please ***DON'T*** use this script on your personal machine, especially if the distro isn't supported!
+> This script is in it's early stages of development and it's meant to be used ***ONLY*** on supported distros with Vanilla GNOME. ***DO NOT*** use this script on your personal machine, especially if the distro isn't supported!
 
 ## :white_check_mark: Supported distros
 
@@ -19,6 +21,6 @@ rester! is a Python script, that converts any supported distro with pre-installe
 	- [ ] Mobian
 
 ## :heart: Thanks to:
-- [The esterOS team](https://www.youtube.com/@Hashtagteamester)
+- The esterOS developers and designers
 - [The adw-gtk3 team](https://github.com/lassekongo83/adw-gtk3)
 - ~~The numerous AI chatbots that helped me get over my suicidal thoughts :)~~
