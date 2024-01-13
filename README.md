@@ -8,6 +8,7 @@ esterify! desktop is a Python script, that converts any supported distro with pr
 
 > [!WARNING]
 > This script is in it's early stages of development and it's meant to be used ***ONLY*** on supported distros with Vanilla GNOME. ***DO NOT*** use this script on your personal machine, especially if the distro isn't supported!
+> Future support may be added for other DE's, but its not garenteed!
 
 ## :white_check_mark: Supported distros
 
