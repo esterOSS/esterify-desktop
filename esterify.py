@@ -90,4 +90,4 @@ while True:
     elif 1 <= choice < len(devices):
         selected_device = devices[choice - 1]
         if choice == 1:
-            print("At this point in time, desktop Linux distros aren't supported yet! Sorry, I'm working on that right now!")
+            print("At this point in time, desktop and enterprise Linux distros aren't supported yet! Sorry, I'm working on that right now!")
