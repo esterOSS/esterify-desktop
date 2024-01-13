@@ -8,7 +8,7 @@ if os.geteuid() != 0:
     print("This script must be run with superuser rights.")
     sys.exit(1)
 
-devices = ["Desktop", "Mobile"]
+devices = ["Desktop", "Mobile", "Enterprise"]
 mobile_distros = ["postmarketOS", "Mobian"]
 mobile_de = ["Phosh", "GNOME Vanilla/Mobile", "Plasma Mobile"]
 desktop_distros = ["Ubuntu", "Debian", "Arch Linux", "Fedora", "Gentoo", "Alpine", "Nix OS"]
