@@ -11,6 +11,10 @@ if os.geteuid() != 0:
 devices = ["Desktop", "Mobile"]
 mobile_distros = ["postmarketOS", "Mobian"]
 mobile_de = ["Phosh", "GNOME Vanilla/Mobile", "Plasma Mobile"]
+desktop_distros = ["Ubuntu", "Debian", "Arch Linux", "Fedora", "Gentoo", "Alpine", "Nix OS"]
+desktop_de = ["GNOME Vanilla", "Plasma"]
+enterprise_distros = ["CentOS", "Red Hat"]
+enterprise_de = ["GNOME Vanilla", "Plasma"]
 
 def display_menu(array):
     print("Choose an option:")
