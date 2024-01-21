@@ -16,6 +16,42 @@ desktop_de = ["GNOME Vanilla", "Plasma"]
 enterprise_distros = ["CentOS", "Red Hat"]
 enterprise_de = ["GNOME Vanilla", "Plasma"]
 
+def standard_gnome_installation():
+    print("This operation will install the icons, font, and edit the application shortcuts (potentially dangerous). \nIf you don't want to do this, press Ctrl+C. \nStarting operation in 5 seconds!")
+    for i in [5, 4, 3, 2, 1]:
+        print(i)
+        time.sleep(1)
+    # Copy the `estericons` folder to `/usr/share/icons/`.
+    shutil.copytree(os.path.join(os.path.dirname(__file__), "estericons"), "/usr/share/icons/estericons/")
+    print("The icons have been copied to `/usr/share/icons/`.")
+
+    # Copy the `Gilroy` file to `/usr/share/fonts/`.
+    for fontfile in os.listdir(os.path.join(os.path.dirname(__file__), "fonts")):
+        shutil.copy(os.path.join(os.path.dirname(__file__), "fonts") + "/" + fontfile, "/usr/share/fonts/")
+    print("The font has been copied to `/usr/share/fonts/`.")
+
+    # Copy the `adw-gtk3` themes to `/usr/share/themes`.
+    shutil.copytree(os.path.join(os.path.dirname(__file__), "adw-gtk3"), "/usr/share/themes/adw-gtk3")
+    shutil.copytree(os.path.join(os.path.dirname(__file__), "adw-gtk3") + "-dark", "/usr/share/themes/adw-gtk3" + "-dark")
+    print("The themes have been copied to `/usr/share/themes/`.")
+
+    # Execute the gsettings commands
+    myuser = os.getlogin()
+    os.system(f"sudo -Hu {myuser} dbus-launch gsettings set org.gnome.desktop.interface icon-theme \'estericons\'")
+    os.system(f"sudo -Hu {myuser} dbus-launch gsettings set org.gnome.desktop.interface gtk-theme \'adw-gtk3\'")
+    os.system(f"sudo -Hu {myuser} dbus-launch gsettings set org.gnome.desktop.interface document-font-name \'Sans 11\'")
+    os.system(f"sudo -Hu {myuser} dbus-launch gsettings set org.gnome.desktop.interface font-antialiasing \'rgba\'")
+    os.system(f"sudo -Hu {myuser} dbus-launch gsettings set org.gnome.desktop.interface font-hinting \'slight\'")
+    os.system(f"sudo -Hu {myuser} dbus-launch gsettings set org.gnome.desktop.interface font-name \'Gilroy-Medium 11\'")
+    os.system(f"sudo -Hu {myuser} dbus-launch gsettings set org.gnome.desktop.interface font-rgba-order \'rgb\'")
+    os.system(f"sudo -Hu {myuser} dbus-launch gsettings set org.gnome.desktop.interface monospace-font-name \'Monospace 13\'")
+    os.system(f"sudo -Hu {myuser} dbus-launch gsettings set org.gnome.desktop.wm.preferences titlebar-font \'Gilroy-Medium 11\'")
+    os.system(f"sudo -Hu {myuser} dbus-launch gsettings set org.gnome.desktop.wm.preferences titlebar-uses-system-font true")
+
+    print("The settings are set! Now reboot your system")
+    input("Press Enter to exit!")
+    exit(1)
+
 def display_menu(array):
     print("Choose an option:")
     for i in range(len(array)):
@@ -39,55 +75,50 @@ while True:
 
     if choice == 0:
         print("Goodbye!")
-        sys.exit(0)
+        exit(1)
+    elif choice == 1:
+        display_menu(desktop_distros)
+        choice = get_selection(desktop_distros)
+        display_menu(desktop_de)
+        choice = get_selection(desktop_de)
+        if choice == 1:
+            standard_gnome_installation()
+        elif choice != 0 :
+            print("This desktop isn't supported yet!")
+        else:
+            print("Goodbye!")
+            exit(1)
     elif choice == 2:
         display_menu(mobile_distros)
         choice = get_selection(mobile_distros)
         if choice == 1: 
-            print("This operation will install the icons, font, and edit the application shortcuts (potentially dangerous). \nIf you don't want to do this, press Ctrl+C. \nStarting operation in 5 seconds!")
-            for i in [5, 4, 3, 2, 1]:
-                print(i)
-                time.sleep(1)
-
-            # Copy the `estericons` folder to `/usr/share/icons/`.
-            estericons_folder = os.path.join(os.path.dirname(__file__), "estericons")
-            destination_folder = "/usr/share/icons/"
-            shutil.copytree(estericons_folder, destination_folder)
-
-            print("The icons have been copied to `/usr/share/icons/`.")
-
-            # Copy the `Gilroy` file to `/usr/share/fonts/`.
-            for fontfile in os.listdir(os.path.join(os.path.dirname(__file__), "fonts")):
-                gilroy_font = fontfile
-                destination_folder = "/usr/share/fonts/"
-                shutil.copy(gilroy_font, destination_folder)
-
-            print("The font has been copied to `/usr/share/fonts/`.")
-            
-            # Copy the `adw-gtk3` themes to `/usr/share/themes`.
-            adw_gtk3 = os.path.join(os.path.dirname(__file__), "adw-gtk3")
-            adw_gtk3_dark = os.path.join(os.path.dirname(__file__), "adw-gtk3-dark")
-            destination_folder = "/usr/share/themes/"
-
-            shutil.copytree(adw_gtk3, destination_folder)
-            shutil.copytree(adw_gtk3_dark, destination_folder)
-
-            print("The themes have been copied to `/usr/share/themes/`.")
-
-            # Execute the gsettings command
-            iconsset_command = "gsettings set org.gnome.desktop.interface icon-theme 'estericons'"
-            subprocess.call(iconsset_command, shell=True)
-            themeset_command = "gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3'"
-            subprocess.call(themeset_command, shell=True)
-            iconsset_command = "gsettings set org.gnome.desktop.interface font-name ''"
-
-            print("The settings are set! Now reboot your system")
-            input("Press Enter to exit!")
-            os.exit(1)
-
-        else:
+            display_menu(mobile_de)
+            choice = get_selection(mobile_de)
+            if choice == 2:
+                standard_gnome_installation()
+            elif choice != 0 :
+                print("This desktop isn't supported yet!")
+            else:
+                print("Goodbye!")
+                exit(1)
+        elif choice != 0:
             print("This distro isn't supported yet!")
-    elif 1 <= choice < len(devices):
-        selected_device = devices[choice - 1]
+        else:
+            print("Goodbye!")
+            exit(1)
+    elif choice == 3:
+        display_menu(enterprise_distros)
+        choice = get_selection(enterprise_distros)
+        display_menu(enterprise_de)
+        choice = get_selection(enterprise_de)
         if choice == 1:
-            print("At this point in time, desktop and enterprise Linux distros aren't supported yet! Sorry, I'm working on that right now!")
+            standard_gnome_installation()
+        elif choice != 0 :
+            print("This desktop isn't supported yet!")
+        else:
+            print("Goodbye!")
+            exit(1)
+    #elif 1 <= choice < len(devices):
+    #    selected_device = devices[choice - 1]
+    #    if choice == 1:
+    #        print("At this point in time, desktop and enterprise Linux distros aren't supported yet! Sorry, I'm working on that right now!")
