@@ -1,12 +1,10 @@
-import sys
 import time
 import os
 import shutil
-import subprocess  # Import the subprocess module for running shell commands
 
 if os.geteuid() != 0:
     print("This script must be run with superuser rights.")
-    sys.exit(1)
+    exit(1)
 
 devices = ["Desktop", "Mobile", "Enterprise"]
 mobile_distros = ["postmarketOS", "Mobian"]
@@ -17,10 +15,12 @@ enterprise_distros = ["CentOS", "Red Hat"]
 enterprise_de = ["GNOME Vanilla", "Plasma"]
 
 def standard_gnome_installation():
+    os.system("clear")
     print("This operation will install the icons, font, and edit the application shortcuts (potentially dangerous). \nIf you don't want to do this, press Ctrl+C. \nStarting operation in 5 seconds!")
     for i in [5, 4, 3, 2, 1]:
         print(i)
         time.sleep(1)
+    os.system("clear")
     # Copy the `estericons` folder to `/usr/share/icons/`.
     shutil.copytree(os.path.join(os.path.dirname(__file__), "estericons"), "/usr/share/icons/estericons/")
     print("The icons have been copied to `/usr/share/icons/`.")
@@ -53,6 +53,7 @@ def standard_gnome_installation():
     exit(1)
 
 def display_menu(array):
+    os.system("clear")
     print("Choose an option:")
     for i in range(len(array)):
         print(f"{i + 1}. {array[i]}")
@@ -80,7 +81,8 @@ while True:
         display_menu(desktop_distros)
         choice = get_selection(desktop_distros)
         if choice == 1:
-            print("This desktop isn't supported yet!")
+            print("This distro isn't supported yet!")
+            input("Press Enter to continue!")
         elif choice != 0:
             display_menu(desktop_de)
             choice = get_selection(desktop_de)
@@ -88,6 +90,7 @@ while True:
                 standard_gnome_installation()
             elif choice != 0:
                 print("This desktop isn't supported yet!")
+                input("Press Enter to continue!")
             else:
                 print("Goodbye!")
                 exit(1)
@@ -104,11 +107,13 @@ while True:
                 standard_gnome_installation()
             elif choice != 0 :
                 print("This desktop isn't supported yet!")
+                input("Press Enter to continue!")
             else:
                 print("Goodbye!")
                 exit(1)
         elif choice != 0:
             print("This distro isn't supported yet!")
+            input("Press Enter to continue!")
         else:
             print("Goodbye!")
             exit(1)
@@ -125,6 +130,7 @@ while True:
                 standard_gnome_installation()
             elif choice != 0 :
                 print("This desktop isn't supported yet!")
+                input("Press Enter to continue!")
             else:
                 print("Goodbye!")
                 exit(1)
