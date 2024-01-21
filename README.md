@@ -1,14 +1,15 @@
 <p align="center"><img width=12.5% src="./esterify-desktop.png"></p>
 
 <h1 align="center">
-  esterify! desktop
+  esterify! desktop (alpha)
 </h1>
 
 esterify! desktop is a Python script, that converts any supported distro with pre-installed vanilla GNOME to look like esterOS!
 
 > [!WARNING]
 > This script is in it's early stages of development and it's meant to be used ***ONLY*** on supported distros with **Vanilla GNOME**. ***DO NOT*** use this script on your personal machine, especially if the distro isn't supported!
-> Future support may be added for other DE's, but its not garenteed!
+> Future support may be added for other DE's, but its not guaranteed!
+> Some of esterOS's signature features still havent been fully implemented, so stay tuned!
 
 ## :white_check_mark: Supported distros
 
@@ -32,4 +33,3 @@ esterify! desktop is a Python script, that converts any supported distro with pr
 ## :heart: Thanks to:
 - The esterOS developers and designers
 - [The adw-gtk3 team](https://github.com/lassekongo83/adw-gtk3)
-- ~~The numerous AI chatbots that helped me get over my suicidal thoughts :)~~
