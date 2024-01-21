@@ -7,26 +7,26 @@
 esterify! desktop is a Python script, that converts any supported distro with pre-installed vanilla GNOME to look like esterOS!
 
 > [!WARNING]
-> This script is in it's early stages of development and it's meant to be used ***ONLY*** on supported distros with Vanilla GNOME. ***DO NOT*** use this script on your personal machine, especially if the distro isn't supported!
+> This script is in it's early stages of development and it's meant to be used ***ONLY*** on supported distros with **Vanilla GNOME**. ***DO NOT*** use this script on your personal machine, especially if the distro isn't supported!
 > Future support may be added for other DE's, but its not garenteed!
 
 ## :white_check_mark: Supported distros
 
 1. **Desktop**
 	- [ ] Ubuntu
-	- [ ] Debian
-	- [ ] Arch Linux
-	- [ ] Fedora
-	- [ ] Gentoo
-	- [ ] Alpine
-	- [ ] Nix OS
-	- [ ] openSUSE
+	- [X] Debian
+	- [X] Arch Linux
+	- [X] Fedora
+	- [X] Gentoo
+	- [X] Alpine
+	- [X] Nix OS
+	- [X] openSUSE
 2. **Mobile**
 	- [X] postmarketOS  [(Installation)](https://github.com/esterOSS/esterify-desktop/blob/main/manual-installation/postmarketOS.md)
 	- [ ] Mobian
 3. **Enterprise**
-	- [ ] CentOS
-	- [ ] Red Hat Linux
+	- [X] CentOS
+	- [X] Red Hat Linux
 
 
 ## :heart: Thanks to:

@@ -79,12 +79,18 @@ while True:
     elif choice == 1:
         display_menu(desktop_distros)
         choice = get_selection(desktop_distros)
-        display_menu(desktop_de)
-        choice = get_selection(desktop_de)
         if choice == 1:
-            standard_gnome_installation()
-        elif choice != 0 :
             print("This desktop isn't supported yet!")
+        elif choice != 0:
+            display_menu(desktop_de)
+            choice = get_selection(desktop_de)
+            if choice == 1:
+                standard_gnome_installation()
+            elif choice != 0:
+                print("This desktop isn't supported yet!")
+            else:
+                print("Goodbye!")
+                exit(1)
         else:
             print("Goodbye!")
             exit(1)
@@ -109,16 +115,16 @@ while True:
     elif choice == 3:
         display_menu(enterprise_distros)
         choice = get_selection(enterprise_distros)
-        display_menu(enterprise_de)
-        choice = get_selection(enterprise_de)
-        if choice == 1:
-            standard_gnome_installation()
-        elif choice != 0 :
-            print("This desktop isn't supported yet!")
-        else:
+        if choice == 0:
             print("Goodbye!")
             exit(1)
-    #elif 1 <= choice < len(devices):
-    #    selected_device = devices[choice - 1]
-    #    if choice == 1:
-    #        print("At this point in time, desktop and enterprise Linux distros aren't supported yet! Sorry, I'm working on that right now!")
+        else:
+            display_menu(enterprise_de)
+            choice = get_selection(enterprise_de)
+            if choice == 1:
+                standard_gnome_installation()
+            elif choice != 0 :
+                print("This desktop isn't supported yet!")
+            else:
+                print("Goodbye!")
+                exit(1)
