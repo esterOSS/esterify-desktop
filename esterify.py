@@ -12,7 +12,7 @@ mobile_de = ["Phosh", "GNOME Vanilla/Mobile", "Plasma Mobile"]
 desktop_distros = ["Ubuntu", "Debian", "Arch Linux", "Fedora", "Gentoo", "Alpine", "Nix OS", "openSUSE"]
 desktop_de = ["GNOME Vanilla", "Plasma"]
 enterprise_distros = ["CentOS", "Red Hat"]
-enterprise_de = ["GNOME Vanilla", "Plasma"]
+enterprise_de = ["GNOME Vanilla"]
 
 def standard_gnome_installation():
     os.system("clear")
